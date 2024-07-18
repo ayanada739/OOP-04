@@ -1,9 +1,25 @@
 ﻿using OOP_04.Interfaces;
+using System;
 
 namespace OOP_04
 {
     internal class Program
     {
+        public static void PrintlONunbersFromSeries(ISeries series)
+        {
+            if (series is not null)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    Console.Write($"{series.Current}"); //0
+                    series.GetNext();
+                }
+
+                series.Reset();
+            }
+        }
+
+         
         static void Main(string[] args)
         {
             #region Interface
@@ -33,7 +49,27 @@ namespace OOP_04
 
             #endregion
 
+            #region Interface Ex 01
+
+            //SeriesByTwo seriesByTwo = new SeriesByTwo();
+            //Print10NumbersFromSeries(seriesByTwo);
+            ////0 2 4 6 8 10 12 14 16 18
+
+
+
+            //SeriesByThree seriesByThree = new SeriesByThree();
+            //Print10NumbersFromSeries(seriesByThree);
+            ////0 3 6 9 12 15 18 21 24 27 
+
+
+            //SeriesByFour seriesByFour = new SeriesByFour();
+            //Print10NumbersFromSeries(seriesByFour);
+            #endregion
+
+
 
         }
-}
+
+       
+    }
 }
