@@ -72,6 +72,43 @@
     }
     #endregion
 
+    #region Part 02 Q03 Methods
+
+   
+    public interface INotificationService
+    {
+        void SendNotification(string recipient, string message);
+    }
+
+     
+    public class EmailNotificationService : INotificationService
+    {
+        public void SendNotification(string recipient, string message)
+        {
+            Console.WriteLine($"Email sent to {recipient}: {message}");
+        }
+    }
+
+     
+    public class SmsNotificationService : INotificationService
+    {
+        public void SendNotification(string recipient, string message)
+        {
+            Console.WriteLine($"SMS sent to {recipient}: {message}");
+        }
+    }
+
+    
+    public class PushNotificationService : INotificationService
+    {
+        public void SendNotification(string recipient, string message)
+        {
+            Console.WriteLine($"Push notification sent to {recipient}: {message}");
+        }
+    }
+
+    #endregion
+
     internal class Program
     {
         static void Main(string[] args)
@@ -155,6 +192,22 @@
             //Console.WriteLine("Authorization success: " + isAuthorized);
 
             #endregion
+
+            #region Q03
+ 
+            //INotificationService emailService = new EmailNotificationService();
+            //INotificationService smsService = new SmsNotificationService();
+            //INotificationService pushService = new PushNotificationService();
+
+          
+
+
+            //emailService.SendNotification("email@example.com", "This is an email message.");
+            //smsService.SendNotification("123-456-7890", "This is an SMS message.");
+            //pushService.SendNotification("user123", "This is a push notification message.");
+
+            #endregion
+
 
             #endregion
         }
