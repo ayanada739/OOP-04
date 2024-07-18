@@ -1,5 +1,6 @@
 ﻿using OOP_04.Interfaces;
 using System;
+using System.Text;
 
 namespace OOP_04
 {
@@ -66,7 +67,7 @@ namespace OOP_04
             //Print10NumbersFromSeries(seriesByFour);
             #endregion
 
-            #region Interface Ex02
+            #region Interface Ex 02
             //Car car = new Car();
             //car.Backward(); //Can Move Backword On Ground
 
@@ -80,6 +81,188 @@ namespace OOP_04
             //FlyablePlane.Forward(); //Airplane Move Forword On Air
 
             #endregion
+
+            #region Shallow Copy And Deep Copy
+
+            #region Array Of Value Type
+            //int[] Arr01 = { 1, 2, 3 };
+            //int[] Arr02 = new int[3]; //{0 , 0 , 0}
+
+            //Console.WriteLine($"HC Of Arr01 = {Arr01.GetHashCode()}");
+            //Console.WriteLine($"HC Of Arr02 = {Arr02.GetHashCode()}");
+
+            #region Shallow Copy [Stack]
+
+            //Arr02 = Arr01; // Shallow Copy
+            //               // Copy Occurred at Stack
+            //               // References [Arr01 Arr02]==>Same Object
+
+            //Console.WriteLine("After Shallow Copy");
+
+            //Console.WriteLine($"HC Of Arr01 = {Arr01.GetHashCode()}");
+            //Console.WriteLine($"HC Of Arr02 = {Arr02.GetHashCode()}");
+            //Arr02[0] = 100;
+
+            //Console.WriteLine("After   Arr02[0] = 100");
+
+
+            //Console.WriteLine($"Arr01[0] = {Arr01[0]}");
+            //Console.WriteLine($"Arr02[0] = {Arr02[0]}");
+            #endregion
+
+            #region Deep Copy [Heap]
+
+            //Arr02 =(int[]) Arr01.Clone();
+            ///Clone ==> Deep Copy
+            /// Deep Copy Occurred At Heap
+            /// Create New Object With Different and New Identity
+            /// That Object Will be The Same Object State (Data) Of Caller [Arr0l]
+            /// Return to An Object
+
+
+            //Console.WriteLine($"HC Of Arr01 = {Arr01.GetHashCode()}");
+            //Console.WriteLine($"HC Of Arr02 = {Arr02.GetHashCode()}");
+
+            //Console.WriteLine($"Arr01[0] = {Arr01[0]}");//1
+            //Console.WriteLine($"Arr02[0] = {Arr02[0]}");//1
+
+            //Arr01[0] = 100;
+
+
+            //Console.WriteLine("After   Arr01[0] = 100");
+
+
+            //Console.WriteLine($"Arr01[0] = {Arr01[0]}");//100
+            //Console.WriteLine($"Arr02[0] = {Arr02[0]}");//1
+
+            #endregion
+
+
+
+
+
+
+
+            #endregion
+
+
+            #region Array Of Reference Type
+
+            #region Array Of String [Immutable Type]
+
+            //string[] Names01 = { "Aya" };
+            //string[] Names02 = new string[1]; // { null }
+
+            //Console.WriteLine($"HC Of Names01 ={Names01.GetHashCode()}");
+            //Console.WriteLine($"HC Of Names02 ={Names02.GetHashCode()}");
+
+            #region Shallow Copy
+
+            //Names02 = Names01; //Shalow Copy [References ---Stack]
+            //                   //References [Name01 , Name02 ] ==> Same Object
+
+            //Console.WriteLine("After Shallow Copy");
+
+            //Console.WriteLine($"HC Of Names01 ={Names01.GetHashCode()}");
+            //Console.WriteLine($"HC Of Names02 ={Names02.GetHashCode()}");
+
+            //Console.WriteLine($"Names01[0] = {Names01[0]}"); //Aya
+            //Console.WriteLine($"Names02[0] = {Names02[0]}"); //Aya
+
+            //Names02[0] = "Nada";
+
+
+            //Console.WriteLine($"Names01[0] = {Names01[0]}"); //Nada
+            //Console.WriteLine($"Names02[0] = {Names02[0]}"); //Nada
+
+
+            #endregion
+
+            #region Deep Copy
+
+
+            //Names02 = (string[])Names01.Clone();
+            //// Create New Object With New And Different Identity
+            //// Object Will Have Same Object State [Data]OF Caller Name01
+
+            //Console.WriteLine("After Deep Copy");
+            //Console.WriteLine($"HC Of Names01 ={Names01.GetHashCode()}");
+            //Console.WriteLine($"HC Of Names02 ={Names02.GetHashCode()}");
+
+
+            // Console.WriteLine($"Names01[0] = {Names01[0]}"); //Aya
+            // Console.WriteLine($"Names02[0] = {Names02[0]}"); //Aya
+
+            //Names02[0] = "Nada";
+
+            //Console.WriteLine($"Names01[0] = {Names01[0]}"); //Aya
+            //Console.WriteLine($"Names02[0] = {Names02[0]}"); //Nada
+
+
+
+            #endregion
+
+            #endregion
+
+            #region Array Of StringBuilder [Mutable Type]
+
+            //StringBuilder[] Names01 = new StringBuilder[1];
+            ////Name01[0].Append("Omar"); //NullReferenceException
+            //Names01[0] = new StringBuilder("Omar");
+
+            //StringBuilder[] Names02 = new StringBuilder[1];
+            //Console.WriteLine($"HC Of Names01 ={Names01.GetHashCode()}");
+            //Console.WriteLine($"HC Of Names02 ={Names02.GetHashCode()}");
+
+            #region Shallow Copy [Stack]
+            //Names02 = Names01; // Shallow Copy [Stack]
+            //                   // 2 References [ Names01 , Names02] ==> Same Object
+
+
+            //Console.WriteLine("Names02 = Names01");
+            //Console.WriteLine($"HC Of Names01 ={Names01.GetHashCode()}");
+            //Console.WriteLine($"HC Of Names02 ={Names02.GetHashCode()}");
+
+
+            //Console.WriteLine($"Names01[0] = {Names01[0]}"); //Omar
+            //Console.WriteLine($"Names02[0] = {Names02[0]}"); //Omar
+
+            //Names02[0].Append("Amr");
+            //Console.WriteLine("Names02[0].Append(\"Amr\")");
+
+            //Console.WriteLine($"Names01[0] = {Names01[0]}"); //Omar Amr
+            //Console.WriteLine($"Names02[0] = {Names02[0]}"); //Omar Amr
+            #endregion
+
+            #region deep Copy [Heap]
+
+            //Names02 = (StringBuilder[])Names01.Clone(); //Deep Copy
+            //                                            //References [Names01 , Names02 ] ==> 2 different Objects
+
+
+
+            //Console.WriteLine("Names02 = (StringBuilder[])Names01.Clone();");
+            //Console.WriteLine($"HC Of Names01 ={Names01.GetHashCode()}");
+            //Console.WriteLine($"HC Of Names02 ={Names02.GetHashCode()}");
+
+
+            //Console.WriteLine($"Names01[0] = {Names01[0]}"); //Omar
+            //Console.WriteLine($"Names02[0] = {Names02[0]}"); //Omar
+
+            //Names02[0].Append("Amr");
+            //Console.WriteLine("Names02[0].Append(\"Amr\")");
+
+            //Console.WriteLine($"Names01[0] = {Names01[0]}"); //Omar Amr
+            //Console.WriteLine($"Names02[0] = {Names02[0]}"); //Omar Amr
+            #endregion
+
+            #endregion
+            #endregion
+
+            #endregion
+
+
+
 
 
 
