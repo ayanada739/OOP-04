@@ -1,5 +1,51 @@
 ﻿namespace Assignment
 {
+    #region Part 02 Q01 Methods
+
+    public interface IShape
+    {
+        double Area { get; }
+        void DisplayShapeInfo();
+    }
+
+    public interface ICircle : IShape
+    {
+        double Radius { get; set; }
+    }
+
+    public interface IRectangle : IShape
+    {
+        double Width { get; set; }
+        double Height { get; set; }
+    }
+
+    public class Circle : ICircle
+    {
+        public double Radius { get; set; }
+
+        public double Area => Math.PI * Radius * Radius;
+
+        public void DisplayShapeInfo()
+        {
+            Console.WriteLine($"Circle: Radius = {Radius}, Area = {Area}");
+        }
+    }
+
+    public class Rectangle : IRectangle
+    {
+        public double Width { get; set; }
+        public double Height { get; set; }
+
+        public double Area => Width * Height;
+
+        public void DisplayShapeInfo()
+        {
+            Console.WriteLine($"Rectangle: Width = {Width}, Height = {Height}, Area = {Area}");
+        }
+    }
+
+    #endregion
+
     internal class Program
     {
         static void Main(string[] args)
@@ -60,7 +106,20 @@
 
             #endregion
 
+            #region Part 02
 
+            #region Q01 Define an interface named IShape with a property Area and a method DisplayShapeInfo. Create two interfaces, ICircle and IRectangle, that inherit from IShape. Implement these interfaces in classes Circle and Rectangle. Test your implementation by creating instances of both classes and displaying their shape information.
+
+            //ICircle circle = new Circle { Radius = 5 };
+            //circle.DisplayShapeInfo();
+
+            //IRectangle rectangle = new Rectangle { Width = 4, Height = 6 };
+            //rectangle.DisplayShapeInfo();
+
+            #endregion
+
+
+            #endregion
         }
     }
 }
