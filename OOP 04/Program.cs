@@ -66,10 +66,25 @@ namespace OOP_04
             //Print10NumbersFromSeries(seriesByFour);
             #endregion
 
+            #region Interface Ex02
+            //Car car = new Car();
+            //car.Backward(); //Can Move Backword On Ground
+
+            //Airplane airplane = new Airplane();
+            //airplane.Backward(); //Airplane Move Backword  
+            ////airplane.Forword(); // Invalid
+            //IMovable MovablePlan = new Airplane();
+            //MovablePlan.Forward(); //Airplane Move Forword On Ground
+
+            //IFlyable FlyablePlane = new Airplane();
+            //FlyablePlane.Forward(); //Airplane Move Forword On Air
+
+            #endregion
+
 
 
         }
 
-       
+
     }
 }
