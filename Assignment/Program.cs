@@ -46,6 +46,32 @@
 
     #endregion
 
+    #region Part 02 Q02 Methods
+
+    public interface IAuthenticationService
+    {
+        bool AuthenticateUser(string username, string password);
+        bool AuthorizeUser(string username, string role);
+    }
+
+    public class BasicAuthenticationService : IAuthenticationService
+    {
+        private string storedUsername = "admin";
+        private string storedPassword = "password";
+
+        public bool AuthenticateUser(string username, string password)
+        {
+            return username == storedUsername && password == storedPassword;
+        }
+
+        public bool AuthorizeUser(string username, string role)
+        {
+            // For simplicity, assume the user "admin" has the "admin" role
+            return username == storedUsername && role == "admin";
+        }
+    }
+    #endregion
+
     internal class Program
     {
         static void Main(string[] args)
@@ -118,6 +144,17 @@
 
             #endregion
 
+            #region Q02 
+
+            //IAuthenticationService authService = new BasicAuthenticationService();
+
+            //bool isAuthenticated = authService.AuthenticateUser("admin", "password");
+            //Console.WriteLine("Authentication success: " + isAuthenticated);
+
+            //bool isAuthorized = authService.AuthorizeUser("admin", "admin");
+            //Console.WriteLine("Authorization success: " + isAuthorized);
+
+            #endregion
 
             #endregion
         }
